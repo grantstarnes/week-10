@@ -28,3 +28,34 @@ print("Model trained and saved as model_1.pickle")
 
 # --------------------- Exercise 2 ---------------------
 
+# Map roast categories to numerical values
+def roast_category(roast):
+    mapping = {
+        "Light": 0,
+        "Medium-Light": 1,
+        "Medium": 2,
+        "Medium-Dark": 3,
+        "Dark": 4
+    }
+
+    # Returns the mapped value or NaN if roast not found
+    return mapping.get(roast, np.nan)
+
+# Apply the roast_category function to create a new column 'roast_cat'  in the DataFrame
+df_coffee["roast_cat"] = df_coffee["roast"].apply(roast_category)
+
+# Set up the feature matrix X (100g_USD and roast_cat) and target vector y (rating)
+X = df_coffee[["100g_USD", "roast_cat"]]
+y = df_coffee["rating"]
+
+# Create and train the Decision Tree Regressor model
+dtr = DecisionTreeRegressor(random_state=42)
+
+dtr.fit(X, y)
+
+# Save the trained model to a file named "model_2.pickle"
+with open("model_2.pickle", "wb") as f:
+    pickle.dump(dtr, f)
+
+# Print confirmation message that the model has been trained and saved
+print("Model trained and saved as model_2.pickle")
