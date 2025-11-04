@@ -30,6 +30,10 @@ print("Model trained and saved as model_1.pickle")
 
 # Map roast categories to numerical values
 def roast_category(roast):
+    '''
+    This function roast_category takes in a roast string and returns a 
+    numerical value based on the defined mapping (0-4)
+    '''
     mapping = {
         "Light": 0,
         "Medium-Light": 1,
