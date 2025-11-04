@@ -1,7 +1,12 @@
-# Importing necessary libraries, pickle for saving the model, pandas for data handling, and LinearRegression from sklearn
+# Importing necessary libraries, pickle for saving the model, pandas for data handling, LinearRegression from sklearn
+# Added numpy and DecisionTreeRegressor for Exercise 2
 import pickle
 import pandas as pd
+import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+
+# --------------------- Exercise 1 ---------------------
 
 # Load the coffee analysis data from the url into a pandas DataFrame
 df_coffee = pd.read_csv("https://raw.githubusercontent.com/leontoddjohnson/datasets/refs/heads/main/data/coffee_analysis.csv")
@@ -20,3 +25,6 @@ with open("model_1.pickle", "wb") as f:
 
 # Print confirmation message that the model has been trained and saved
 print("Model trained and saved as model_1.pickle")
+
+# --------------------- Exercise 2 ---------------------
+
